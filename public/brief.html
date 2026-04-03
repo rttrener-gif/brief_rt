@@ -366,7 +366,7 @@ function selectType(type, btn) {
   selectedType = type;
   document.querySelectorAll('#step1 .choice-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('step2').style.display = '';
+  document.getElementById('step2').style.display = 'block';
   document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
