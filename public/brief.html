@@ -253,9 +253,25 @@
       <label>Контакт (email или Telegram)</label>
       <input type="text" id="f-contact" placeholder="@username или email">
 
-      <label>Цель и задачи проекта</label>
-      <textarea id="f-goal" placeholder="Опишите, что хотите получить, какой бизнес- или образовательный эффект ожидаете, критерии эффективности"></textarea>
+      <label>Название продукта / инициативы</label>
+      <input type="text" id="f-title" placeholder="Например: ИИ-ассистент для проверки ДЗ">
+
+      <label>Суть продукта</label>
+      <textarea id="f-description" placeholder="Кратко опишите, что должен делать продукт: какую задачу решает, как пользователь с ним взаимодействует" style="min-height:80px"></textarea>
+      <div class="hint">2–3 предложения: что делает, для кого, как выглядит результат</div>
+
+      <label>Цель и ожидаемый эффект</label>
+      <textarea id="f-goal" placeholder="Какой бизнес- или образовательный результат ожидаете? По каким критериям поймёте, что продукт работает?"></textarea>
       <div class="hint">Чем конкретнее описание — тем точнее оценка</div>
+
+      <label>Желаемые сроки</label>
+      <select id="f-deadline">
+        <option value="">Выберите...</option>
+        <option value="Срочно (до 2 недель)">Срочно (до 2 недель)</option>
+        <option value="1–2 месяца">1–2 месяца</option>
+        <option value="Квартал">В рамках квартала</option>
+        <option value="Без жёстких сроков">Без жёстких сроков</option>
+      </select>
 
       <label>Охват пользователей</label>
       <select id="f-users">
@@ -274,6 +290,9 @@
         <option value="Персональные данные">Персональные данные сотрудников</option>
         <option value="Коммерческая тайна">Коммерческая тайна</option>
       </select>
+
+      <label>Есть ли аналоги или похожие решения?</label>
+      <input type="text" id="f-analogs" placeholder="Ссылки или названия, если знаете (необязательно)">
     </div>
 
     <!-- STEP 3: Express assessment -->
@@ -402,9 +421,13 @@ async function submitBrief() {
       body: JSON.stringify({
         name,
         contact,
+        title: document.getElementById('f-title').value.trim(),
+        description: document.getElementById('f-description').value.trim(),
         goal,
+        deadline: document.getElementById('f-deadline').value,
         users: document.getElementById('f-users').value,
         confidentiality: document.getElementById('f-conf').value,
+        analogs: document.getElementById('f-analogs').value.trim(),
         product_type: selectedType === 'student' ? 'Для учеников (студенты О-у)' : 'Для команды',
         strategic: labels.strategic,
         scale: labels.scale,
