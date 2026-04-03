@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МинИИстерство — Заявка на ИИ-решение</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --text-1: #1a1a2e;
+    --text-2: #4a4a6a;
+    --muted: #9ca3af;
+    --accent: #7c3aed;
+    --accent-light: #ede9fe;
+    --accent-dark: #5b21b6;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --orange: #ea580c;
+    --r: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-2);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 8px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header p { font-size: 15px; color: var(--muted); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .step-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 4px;
+  }
+  .card .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  /* Choice buttons */
+  .choices { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .choice-btn {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+    background: var(--card);
+    cursor: pointer;
+    color: var(--text-1);
+    font-size: 14px;
+    font-family: inherit;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .choice-btn:hover { border-color: var(--accent); }
+  .choice-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-weight: 500;
+  }
+
+  /* Form fields */
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 6px;
+    margin-top: 16px;
+  }
+  label:first-child { margin-top: 0; }
+  textarea, input[type="text"], input[type="email"], select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-1);
+    background: var(--bg);
+    transition: border-color .2s;
+    outline: none;
+  }
+  textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 100px; }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ROI mini-calc */
+  .roi-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .roi-row:last-child { border-bottom: none; }
+  .roi-icon { font-size: 20px; flex-shrink: 0; }
+  .roi-label { flex: 1; font-size: 14px; color: var(--text-1); font-weight: 500; }
+  .roi-select {
+    width: 220px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-2);
+    background: var(--bg);
+    outline: none;
+  }
+  .roi-select:focus { border-color: var(--accent); }
+
+  /* Result */
+  .result-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    transition: all .3s;
+  }
+  .result-score { font-size: 36px; font-weight: 700; }
+  .result-label { font-size: 14px; font-weight: 600; margin-top: 4px; }
+  .result-advice { font-size: 13px; color: var(--text-2); margin-top: 8px; }
+
+  /* Submit */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 24px;
+  }
+  .submit-btn:hover { background: var(--accent-dark); }
+  .submit-btn:disabled { background: var(--muted); cursor: not-allowed; }
+
+  .success-msg {
+    text-align: center;
+    padding: 40px;
+    display: none;
+  }
+  .success-msg.show { display: block; }
+  .success-msg .icon { font-size: 48px; margin-bottom: 12px; }
+  .success-msg h3 { font-size: 20px; color: var(--text-1); margin-bottom: 8px; }
+
+  /* Step 2 hidden by default */
+  #step2 { display: none; }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .card { padding: 20px; }
+    .roi-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .roi-select { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-badge">Заявка на ИИ-решение</div>
+    <h1>Мин<span>ИИ</span>стерство</h1>
+    <p>Заполните бриф — и мы оценим вашу инициативу</p>
+  </div>
+
+  <!-- STEP 1: Product type -->
+  <div class="card" id="step1">
+    <div class="step-label">Шаг 1</div>
+    <h2>Что вам нужно?</h2>
+    <p class="subtitle">Выберите тип продукта</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="selectType('student', this)">
+        <span style="font-size:20px">🎓</span> Продукт для учеников (студенты О-у)
+      </button>
+      <button class="choice-btn" onclick="selectType('team', this)">
+        <span style="font-size:20px">👥</span> Продукт для команды
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Brief form -->
+  <div id="step2">
+    <div class="card">
+      <div class="step-label">Шаг 2</div>
+      <h2>Заполните бриф</h2>
+      <p class="subtitle">Минимальный набор данных для оценки</p>
+
+      <label>Ваше имя / подразделение</label>
+      <input type="text" id="f-name" placeholder="Иванова А.С., Управление обучения">
+
+      <label>Контакт (email или Telegram)</label>
+      <input type="text" id="f-contact" placeholder="@username или email">
+
+      <label>Цель и задачи проекта</label>
+      <textarea id="f-goal" placeholder="Опишите, что хотите получить, какой бизнес- или образовательный эффект ожидаете, критерии эффективности"></textarea>
+      <div class="hint">Чем конкретнее описание — тем точнее оценка</div>
+
+      <label>Охват пользователей</label>
+      <select id="f-users">
+        <option value="">Выберите...</option>
+        <option value="< 100 чел.">Менее 100 человек</option>
+        <option value="100–500 чел.">100–500 человек</option>
+        <option value="500–2000 чел.">500–2000 человек</option>
+        <option value="> 2000 чел.">Более 2000 человек</option>
+      </select>
+
+      <label>Конфиденциальность данных</label>
+      <select id="f-conf">
+        <option value="">Выберите...</option>
+        <option value="Открытые данные">Открытые данные</option>
+        <option value="Внутренние данные">Внутренние данные компании</option>
+        <option value="Персональные данные">Персональные данные сотрудников</option>
+        <option value="Коммерческая тайна">Коммерческая тайна</option>
+      </select>
+    </div>
+
+    <!-- STEP 3: Express assessment -->
+    <div class="card">
+      <div class="step-label">Шаг 3</div>
+      <h2>Экспресс-оценка</h2>
+      <p class="subtitle">Помогите нам оценить приоритетность — выберите подходящие варианты</p>
+
+      <div class="roi-row">
+        <span class="roi-icon">🎯</span>
+        <span class="roi-label">Стратегическая ценность</span>
+        <select class="roi-select" id="r-strategic" onchange="calcResult()">
+          <option value="">Выберите...</option>
+          <option value="0">Локальная задача</option>
+          <option value="1">Улучшает процесс</option>
+          <option value="2">Влияет на KPI</option>
+          <option value="3">Трансформирует направление</option>
+        </select>
+      </div>
+      <div class="roi-row">
+        <span class="roi-icon">📈</span>
+        <span class="roi-label">Масштабируемость</span>
+        <select class="roi-select" id="r-scale" onchange="calcResult()">
+          <option value="">Выберите...</option>
+          <option value="0">Разовое решение</option>
+          <option value="1">Ограниченный потенциал</option>
+          <option value="2">Масштабируется</option>
+          <option value="3">Платформенное решение</option>
+        </select>
+      </div>
+      <div class="roi-row">
+        <span class="roi-icon">👥</span>
+        <span class="roi-label">Охват пользователей</span>
+        <select class="roi-select" id="r-users" onchange="calcResult()">
+          <option value="">Выберите...</option>
+          <option value="0">Менее 100</option>
+          <option value="1">100–500</option>
+          <option value="2">500–2000</option>
+          <option value="3">Более 2000</option>
+        </select>
+      </div>
+
+      <div class="result-box" id="result-box">
+        <div style="color:var(--muted);font-size:13px">Заполните все три поля для предварительной оценки</div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button class="submit-btn" id="submit-btn" onclick="submitBrief()">Отправить заявку</button>
+  </div>
+
+  <!-- Success message -->
+  <div class="success-msg" id="success-msg">
+    <div class="icon">✅</div>
+    <h3>Заявка отправлена!</h3>
+    <p>Мы получили ваш бриф и свяжемся с вами в ближайшее время для уточнения деталей.</p>
+  </div>
+
+</div>
+
+<script>
+let selectedType = '';
+const decisions = [
+  { min:0,  max:30,  label:'🔁 Переработать запрос',  color:'#dc2626', bg:'#fef2f2', border:'#fecaca' },
+  { min:31, max:55,  label:'⚠️ Требует обоснования', color:'#d97706', bg:'#fffbeb', border:'#fde68a' },
+  { min:56, max:75,  label:'🔄 Через провайдера',     color:'#2563eb', bg:'#eff6ff', border:'#bfdbfe' },
+  { min:76, max:100, label:'✅ Разрабатывать',         color:'#16a34a', bg:'#f0fdf4', border:'#bbf7d0' },
+];
+
+function selectType(type, btn) {
+  selectedType = type;
+  document.querySelectorAll('#step1 .choice-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('step2').style.display = '';
+  document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function calcResult() {
+  const s = document.getElementById('r-strategic').value;
+  const sc = document.getElementById('r-scale').value;
+  const u = document.getElementById('r-users').value;
+  const box = document.getElementById('result-box');
+
+  if (s === '' || sc === '' || u === '') {
+    box.innerHTML = '<div style="color:var(--muted);font-size:13px">Заполните все три поля для предварительной оценки</div>';
+    return;
+  }
+
+  const total = Math.round((+s/3)*35 + (+sc/3)*30 + (+u/3)*35);
+  const d = decisions.find(x => total >= x.min && total <= x.max) || decisions[0];
+
+  box.style.background = d.bg;
+  box.style.borderColor = d.border;
+  box.innerHTML = `
+    <div class="result-score" style="color:${d.color}">${total}</div>
+    <div style="font-size:11px;color:var(--muted)">из 100 баллов</div>
+    <div class="result-label" style="color:${d.color}">${d.label}</div>
+    <div class="result-advice">Это предварительная оценка. Окончательное решение принимается после анализа брифа командой.</div>
+  `;
+}
+
+async function submitBrief() {
+  const btn = document.getElementById('submit-btn');
+  const goal = document.getElementById('f-goal').value.trim();
+  const name = document.getElementById('f-name').value.trim();
+  const contact = document.getElementById('f-contact').value.trim();
+
+  if (!goal) { alert('Пожалуйста, опишите цель и задачи проекта'); return; }
+  if (!selectedType) { alert('Выберите тип продукта'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Отправляем...';
+
+  const labels = { strategic: '', scale: '', users: '' };
+  const selS = document.getElementById('r-strategic');
+  const selSc = document.getElementById('r-scale');
+  const selU = document.getElementById('r-users');
+  if (selS.selectedIndex > 0) labels.strategic = selS.options[selS.selectedIndex].text;
+  if (selSc.selectedIndex > 0) labels.scale = selSc.options[selSc.selectedIndex].text;
+  if (selU.selectedIndex > 0) labels.users = selU.options[selU.selectedIndex].text;
+
+  try {
+    const res = await fetch('/api/brief', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        contact,
+        goal,
+        users: document.getElementById('f-users').value,
+        confidentiality: document.getElementById('f-conf').value,
+        product_type: selectedType === 'student' ? 'Для учеников (студенты О-у)' : 'Для команды',
+        strategic: labels.strategic,
+        scale: labels.scale,
+      }),
+    });
+
+    if (res.ok) {
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (e) {
+    alert('Не удалось отправить заявку. Попробуйте позже или свяжитесь с командой напрямую.');
+    btn.disabled = false;
+    btn.textContent = 'Отправить заявку';
+  }
+}
+</script>
+</body>
+</html>
