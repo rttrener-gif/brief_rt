@@ -1129,7 +1129,7 @@
         <div class="struct-head">◈ Мин<span class="brand-ii">ИИ</span>стр</div>
         <div class="struct-line"></div>
         <div class="struct-row" style="width:100%">
-          <div class="struct-node" style="border:1px solid #34d39966"><div class="node-label" style="color:#34d399">◉ ИИ-эксперт</div><div class="node-sub">«Лицо»</div></div>
+          <div class="struct-node" style="border:1px solid #34d39966"><div class="node-label" style="color:#34d399">◉ Лидер сегмента</div><div class="node-sub">«Заказчик»</div></div>
           <div class="struct-node" style="border:1px solid #60a5fa66"><div class="node-label" style="color:#60a5fa">◆ ИИ-разработчик</div><div class="node-sub">«Руки»</div></div>
           <div class="struct-node" style="border:1px solid #fb923c66"><div class="node-label" style="color:#fb923c">◇ Методолог</div><div class="node-sub">«Архитектор»</div></div>
         </div>
@@ -1155,7 +1155,7 @@
         <div class="rbicon">◈</div><div class="rbsub">«Мозг»</div>
       </button>
       <button class="role-btn" id="rbtn-expert" onclick="switchRole('expert', this)" style="">
-        <div class="rbicon">◉</div><div class="rbsub">«Лицо»</div>
+        <div class="rbicon">◉</div><div class="rbsub">«Заказчик»</div>
       </button>
       <button class="role-btn" id="rbtn-dev" onclick="switchRole('dev', this)" style="">
         <div class="rbicon">◆</div><div class="rbsub">«Руки»</div>
@@ -1273,7 +1273,28 @@
 
     <div class="card">
       <h2 style="font-family:'EB Garamond',serif;font-size:20px;margin-bottom:6px">Матрица рентабельности</h2>
-      <p style="font-size:13px;color:var(--muted)">Оцени проект по 6 критериям — система выдаст рекомендацию по реализации</p>
+      <p style="font-size:13px;color:var(--muted)">Оцени проект по 8 критериям — система выдаст рекомендацию по реализации</p>
+
+      <details style="margin-top:16px;font-size:13px;color:var(--text-2)">
+        <summary style="cursor:pointer;font-weight:600;color:var(--text)">Как считаются баллы?</summary>
+        <div style="margin-top:10px;padding:12px;background:var(--bg-subtle);border-radius:8px;line-height:1.7">
+          <p style="margin:0 0 8px">Каждый критерий имеет <strong>вес</strong> (в %) и <strong>4 уровня</strong> оценки (от 0 до 3 баллов).</p>
+          <p style="margin:0 0 8px"><strong>Формула:</strong> балл критерия = (выбранный уровень / 3) × вес.</p>
+          <p style="margin:0 0 8px"><strong>Итоговый балл</strong> = сумма баллов по всем критериям (макс. 100).</p>
+          <table style="width:100%;font-size:12px;border-collapse:collapse;margin-top:8px">
+            <tr><td style="padding:4px 8px">Кол-во пользователей</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
+            <tr><td style="padding:4px 8px">Частота использования</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
+            <tr><td style="padding:4px 8px">Стратегическая ценность</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
+            <tr><td style="padding:4px 8px">Сложность реализации</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
+            <tr><td style="padding:4px 8px">Стоимость на пользователя</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
+            <tr><td style="padding:4px 8px">Стоимость внешних сервисов</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
+            <tr><td style="padding:4px 8px">Масштабируемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
+            <tr><td style="padding:4px 8px">Поддерживаемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
+            <tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px;font-weight:600">Итого</td><td style="padding:4px 8px;text-align:right;font-weight:600">100%</td></tr>
+          </table>
+          <p style="margin:10px 0 0;font-size:12px;color:var(--text-3)">Веса могут быть скорректированы по результатам обсуждения.</p>
+        </div>
+      </details>
     </div>
 
     <div id="criteria-container">
@@ -1443,6 +1464,38 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="concept-header">
+        <span style="font-size:28px">🧭</span>
+        <div>
+          <h2>Провайдер или собственная разработка?</h2>
+          <p>Принципы принятия решения</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;font-size:14px">
+        <div style="padding:16px;border-radius:10px;background:var(--roi-sel-bg);border:1px solid var(--roi-sel-border)">
+          <div style="font-weight:600;color:var(--roi-sel-color);margin-bottom:8px">✅ Собственная разработка</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-2);line-height:1.7">
+            <li>Решение делается быстро (до 2–4 нед.)</li>
+            <li>Не требует больших затрат</li>
+            <li>Нужна гибкость и частые доработки</li>
+            <li>Данные чувствительны (внутри периметра)</li>
+            <li>Формирует внутреннюю экспертизу команды</li>
+          </ul>
+        </div>
+        <div style="padding:16px;border-radius:10px;background:var(--bg-subtle);border:1px solid var(--border)">
+          <div style="font-weight:600;color:var(--text);margin-bottom:8px">🔄 Через провайдера</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-2);line-height:1.7">
+            <li>Решение сложное технически (> 1–3 мес.)</li>
+            <li>Требует специфических компетенций</li>
+            <li>Глобальное и редко изменяется</li>
+            <li>Нужна скорость запуска</li>
+            <li>Есть отработанная методология провайдера</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ===================== JOURNEY ===================== -->
@@ -1510,6 +1563,40 @@
       
     </div>
   </div>
+    </div>
+
+    <!-- Модели оплаты для ДЗО -->
+    <div class="card" style="margin-top:20px">
+      <div class="concept-header">
+        <span style="font-size:28px">💳</span>
+        <div>
+          <h2>Модели оплаты для ДЗО</h2>
+          <p>Два варианта подключения к ИИ-инструментам</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;font-size:14px">
+        <div style="padding:20px;border-radius:12px;border:1px solid var(--border);background:var(--surface)">
+          <div style="font-weight:600;color:var(--text);margin-bottom:4px">Модель 1: По факту потребления</div>
+          <div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Оплата с корректировками</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-2);line-height:1.7;font-size:13px">
+            <li>Расчёт стоимости на основе реального потребления</li>
+            <li>Корректировки по итогам периода</li>
+            <li>Гибкость — платите за то, что используете</li>
+            <li>Подходит для пилотных проектов</li>
+          </ul>
+        </div>
+        <div style="padding:20px;border-radius:12px;border:2px solid var(--accent);background:var(--surface)">
+          <div style="font-weight:600;color:var(--text);margin-bottom:4px">Модель 2: Подписка</div>
+          <div style="font-size:12px;color:var(--text-3);margin-bottom:12px">Фиксированные пакеты</div>
+          <ul style="margin:0;padding-left:18px;color:var(--text-2);line-height:1.7;font-size:13px">
+            <li><strong>Базовый:</strong> подключение к Онлайн-университету</li>
+            <li><strong>Расширенный:</strong> Онлайн-университет + доступ к ИИ-инструментам</li>
+            <li>Фиксированная стоимость — проще бюджетирование</li>
+            <li>ДЗО самостоятельно выбирает пакет</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:12px;color:var(--text-3)">* Конкретные суммы уточняются. Выбор модели — на стороне ДЗО.</p>
     </div>
 
     <!-- Бриф / Паспорт проекта -->
@@ -1691,37 +1778,45 @@
           <p>Сервисы и инструменты команды</p>
         </div>
       </div>
-      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:16px">
+      <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:16px;min-width:700px">
         <thead>
           <tr style="background:var(--bg-subtle);text-align:left">
-            <th style="padding:12px 16px;font-weight:600;color:var(--text);border-radius:10px 0 0 0">Сервис</th>
-            <th style="padding:12px 16px;font-weight:600;color:var(--text)">Стоимость/год</th>
-            <th style="padding:12px 16px;font-weight:600;color:var(--text);border-radius:0 10px 0 0">Для чего используем</th>
+            <th style="padding:10px 12px;font-weight:600;color:var(--text);border-radius:10px 0 0 0">Сервис</th>
+            <th style="padding:10px 12px;font-weight:600;color:var(--text)">Стоимость</th>
+            <th style="padding:10px 12px;font-weight:600;color:var(--text)">Лимиты</th>
+            <th style="padding:10px 12px;font-weight:600;color:var(--text);border-radius:0 10px 0 0">Для чего</th>
           </tr>
         </thead>
         <tbody>
           <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:12px 16px;font-weight:600;color:var(--text-1)">Claude Pro</td>
-            <td style="padding:12px 16px;color:var(--text-2)">$200 (~18 000₽)</td>
-            <td style="padding:12px 16px;color:var(--text-2)">Аналитика, написание документов, сложные рассуждения, работа с большими вложениями, агентное программирование</td>
+            <td style="padding:10px 12px;font-weight:600;color:var(--text)">Claude Pro</td>
+            <td style="padding:10px 12px;color:var(--text-2)">$20/мес<br><span style="font-size:11px;color:var(--text-3)">$200/год</span></td>
+            <td style="padding:10px 12px;color:var(--text-2)">45 сообщ./5ч, Opus 4.6, Claude Code</td>
+            <td style="padding:10px 12px;color:var(--text-2)">Аналитика, документы, агентное программирование</td>
           </tr>
           <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:12px 16px;font-weight:600;color:var(--text-1)">Cursor Pro</td>
-            <td style="padding:12px 16px;color:var(--text-2)">$192 (~17 000₽)</td>
-            <td style="padding:12px 16px;color:var(--text-2)">Программирование в IDE: автодополнение, рефакторинг, правки в нескольких файлах, чат по коду</td>
+            <td style="padding:10px 12px;font-weight:600;color:var(--text)">Cursor Pro</td>
+            <td style="padding:10px 12px;color:var(--text-2)">$20/мес<br><span style="font-size:11px;color:var(--text-3)">$192/год</span></td>
+            <td style="padding:10px 12px;color:var(--text-2)">$20 credit pool/мес, Auto mode unlimited</td>
+            <td style="padding:10px 12px;color:var(--text-2)">IDE: автодополнение, рефакторинг, чат по коду</td>
           </tr>
           <tr style="border-bottom:1px solid var(--border)">
-            <td style="padding:12px 16px;font-weight:600;color:var(--text-1)">Google AI Pro</td>
-            <td style="padding:12px 16px;color:var(--text-2)">1 700₽</td>
-            <td style="padding:12px 16px;color:var(--text-2)">Универсальный ассистент: поиск, длинные документы, мультимодальность, генерация текста и кода</td>
+            <td style="padding:10px 12px;font-weight:600;color:var(--text)">Google AI Pro</td>
+            <td style="padding:10px 12px;color:var(--text-2)">~142₽/мес<br><span style="font-size:11px;color:var(--text-3)">1 700₽/год</span></td>
+            <td style="padding:10px 12px;color:var(--text-2)">Gemini Pro, 1M context window</td>
+            <td style="padding:10px 12px;color:var(--text-2)">Поиск, длинные документы, мультимодальность</td>
           </tr>
           <tr>
-            <td style="padding:12px 16px;font-weight:600;color:var(--text-1)">Буквица Базовый</td>
-            <td style="padding:12px 16px;color:var(--text-2)">3 890₽</td>
-            <td style="padding:12px 16px;color:var(--text-2)">Транскрибация: звонки, встречи, лекции в текст (Telegram-бот)</td>
+            <td style="padding:10px 12px;font-weight:600;color:var(--text)">Буквица Базовый</td>
+            <td style="padding:10px 12px;color:var(--text-2)">649₽/мес<br><span style="font-size:11px;color:var(--text-3)">3 890₽/год</span></td>
+            <td style="padding:10px 12px;color:var(--text-2)">30ч без разделения + 3ч с разделением по спикерам</td>
+            <td style="padding:10px 12px;color:var(--text-2)">Транскрибация: звонки, встречи, лекции</td>
           </tr>
         </tbody>
       </table>
+      </div>
+      <p style="margin-top:12px;font-size:12px;color:var(--text-3)">* Для Claude и Cursor: при необходимости командного доступа — отдельный аккаунт на каждого специалиста. Рекомендация: 2–3 аккаунта Claude Pro + 2 аккаунта Cursor Pro для команды из 4 человек.</p>
     </div>
 
     <div class="card">
@@ -1795,14 +1890,6 @@
         </tbody>
       </table>
 
-      <div style="margin-top:20px;padding:16px;border-radius:12px;background:#fefce8;border:1px solid #fde68a">
-        <div style="font-weight:600;margin-bottom:8px;color:#92400e">💡 Ключевой вопрос для обсуждения</div>
-        <p style="color:var(--text-2);margin:0;font-size:14px;line-height:1.6">
-          Стоимость серверной инфраструктуры (ферма / InCloud / Яндекс) vs. стоимость внешних провайдеров.
-          При наличии собственных мощностей внутренняя разработка выигрывает по большинству критериев.
-          Вопрос: покупка фермы vs. аренда мощностей vs. InCloud (дорого + слабое управление).
-        </p>
-      </div>
     </div>
 
   </div>
@@ -1871,16 +1958,16 @@ let roles = {
   },
   "expert": {
     "icon": "◉",
-    "title": "ИИ-эксперт / ИИ-лидер сегмента",
-    "subtitle": "«Лицо»",
+    "title": "Лидер сегмента / Бизнес-заказчик",
+    "subtitle": "«Заказчик»",
     "color": "#34d399",
     "accent": "#059669",
-    "desc": "Эксперт ИИ: соединяет техническую экспертность с публичной ролью — консультации, воркшопы, P2P и тиражирование удачных сценариев (промпты, проверка выхода, безопасность данных). Взаимодействует с заказчиками.",
+    "desc": "Лидер сегмента, который владеет бизнес-контекстом и формулирует запрос на ИИ-решения. Консультирует заказчиков, формирует требования, умеет самостоятельно собирать простые ИИ-агенты и несложные решения без привлечения разработки.",
     "tasks": [
       "Взаимодействие и консультирование заказчиков: что реально даст ИИ, где риски и альтернативы",
       "Формирование требований для разработки, чек-листов качества и вклад в базу знаний",
       "Экспертная проработка решений и постановка задач разработке",
-      "Мастер-классы, разборы кейсов и менторство коллег (амбассадорство практик)",
+      "Самостоятельная сборка простых ИИ-агентов и несложных решений",
       "Постановка задач модели: промптинг, декомпозиция, валидация и борьба с галлюцинациями"
     ],
     "skills": [
@@ -1893,11 +1980,11 @@ let roles = {
         5
       ],
       [
-        "Публичные выступления, тренерские навыки и фасилитация",
+        "Тренерские навыки и фасилитация",
         4
       ],
       [
-        "Продуктовое мышление",
+        "Сборка простых ИИ-агентов и no-code решений",
         4
       ],
       [
@@ -1994,14 +2081,26 @@ let roles = {
 let criteria = [
   {
     "id": "users",
-    "label": "Охват пользователей",
+    "label": "Количество пользователей",
     "icon": "👥",
-    "weight": 25,
+    "weight": 20,
     "levels": [
       "< 100 чел.",
       "100–500 чел.",
       "500–2000 чел.",
       "> 2000 чел."
+    ]
+  },
+  {
+    "id": "frequency",
+    "label": "Частота использования одним пользователем",
+    "icon": "🔄",
+    "weight": 15,
+    "levels": [
+      "Разово (1–2 раза)",
+      "Редко (до 3 раз/год)",
+      "Регулярно (ежемесячно)",
+      "Постоянно (ежедневно)"
     ]
   },
   {
@@ -2020,7 +2119,7 @@ let criteria = [
     "id": "complex",
     "label": "Сложность реализации",
     "icon": "⚙️",
-    "weight": 20,
+    "weight": 15,
     "levels": [
       "Высокая (>3 мес.)",
       "Средняя (1–3 мес.)",
@@ -2029,10 +2128,22 @@ let criteria = [
     ]
   },
   {
+    "id": "cost_per_user",
+    "label": "Стоимость на одного пользователя",
+    "icon": "💰",
+    "weight": 10,
+    "levels": [
+      "> 1000₽/чел.",
+      "500–1000₽/чел.",
+      "100–500₽/чел.",
+      "< 100₽/чел."
+    ]
+  },
+  {
     "id": "cost",
     "label": "Стоимость внешних сервисов",
-    "icon": "💰",
-    "weight": 15,
+    "icon": "🏷️",
+    "weight": 10,
     "levels": [
       "> 100k₽/мес.",
       "50–100k₽/мес.",
@@ -2044,7 +2155,7 @@ let criteria = [
     "id": "scale",
     "label": "Масштабируемость",
     "icon": "📈",
-    "weight": 10,
+    "weight": 5,
     "levels": [
       "Разовое решение",
       "Ограниченный потенциал",
@@ -2056,7 +2167,7 @@ let criteria = [
     "id": "support",
     "label": "Поддерживаемость",
     "icon": "🔧",
-    "weight": 10,
+    "weight": 5,
     "levels": [
       "Критически сложно",
       "Требует спеца",
@@ -2284,7 +2395,7 @@ const journeyData = {
       { icon: '1️⃣', text: 'ДЗО обращается в минИИстерство с запросом на использование существующих решений' },
       { icon: '2️⃣', text: 'Схема взаимодействия: определяем, какие тренажёры/решения уже есть в Онлайн-университете' },
       { icon: '3️⃣', text: 'ДЗО подключается к готовым инструментам через Онлайн-университет' },
-      { icon: '4️⃣', text: 'Стоимость возвращается через корректировки' }
+      { icon: '4️⃣', text: 'ДЗО выбирает модель оплаты (см. ниже)' }
     ]
   }
 };
@@ -2450,7 +2561,7 @@ function updateCriteriaData(idx, field, levelIdx, value) {
 }
 
 // ---- DATA VERSION (увеличить при каждом обновлении данных в коде) ----
-const DATA_VERSION = 5;
+const DATA_VERSION = 6;
 // Данные сохраняются через /api/data (Supabase) + localStorage как фолбэк
 const API_DATA_URL = '/api/data';
 

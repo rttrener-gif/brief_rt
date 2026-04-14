@@ -11,7 +11,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { goal, users, confidentiality, product_type, strategic, scale, contact, name, title, description, deadline, analogs } = req.body;
+    const { goal, users, confidentiality, product_type, strategic, frequency, contact, name, title, description, deadline, analogs, save_money, save_hours } = req.body;
+
+    const savingsLines = [];
+    if (save_money) savingsLines.push(`💰 Экономия денег: ${Number(save_money).toLocaleString('ru-RU')}₽/год`);
+    if (save_hours) savingsLines.push(`⏱ Экономия времени: ${save_hours} ч/мес (≈${(Number(save_hours)/160).toFixed(2)} шт.ед.)`);
 
     const text = [
       '📋 *Новая заявка на ИИ-инициативу*',
@@ -29,10 +33,13 @@ export default async function handler(req, res) {
       `🔒 *Конфиденциальность:* ${confidentiality || 'Не указано'}`,
       analogs ? `🔗 *Аналоги:* ${analogs}` : '',
       '',
-      '── Экспресс-оценка ──',
+      '── Оценка ценности ──',
       `🎯 Стратегическая ценность: ${strategic || '—'}`,
-      `📈 Масштабируемость: ${scale || '—'}`,
-      `👥 Охват: ${users || '—'}`,
+      `👥 Кол-во пользователей: ${users || '—'}`,
+      `🔄 Частота использования: ${frequency || '—'}`,
+      savingsLines.length > 0 ? '' : '',
+      ...savingsLines,
+      !save_money && !save_hours ? '⚠️ Экономия не указана' : '',
     ].filter(Boolean).join('\n');
 
     const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
