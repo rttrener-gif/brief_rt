@@ -1039,7 +1039,7 @@
         </div>
       </div>
       <div class="concept-body">
-        ИИ-центр — внутренний «мозговой центр» организации, обрабатывающий все запросы, связанные с разработкой и внедрением искусственного интеллекта.<br><br>Работает одновременно в двух направлениях:<br>— создание ИИ-контента для учеников (тренажёры, симуляторы, учебные материалы)<br>— разработка инструментов для команды обучающих (аналитические агенты, дашборды, автоматизация).
+        ИИ-центр — внутренний «мозговой центр» команды обучения, обрабатывающий все запросы, связанные с разработкой и внедрением искусственного интеллекта.<br><br>Работает одновременно в двух направлениях:<br>— создание ИИ-контента для учеников (тренажёры, симуляторы, учебные материалы)<br>— разработка инструментов для команды обучающих (аналитические агенты, дашборды, автоматизация).
       </div>
     </div>
 
@@ -1084,8 +1084,8 @@
       <div class="stream">
         <div class="stream-bar" style="background:#a78bfa"></div>
         <div>
-          <div class="stream-name" style="color:#a78bfa">Для всех сотрудников</div>
-          <div><span class="tag">ИИ-помощники</span><span class="tag">Навигация по организации обучения</span><span class="tag">Поиск курсов и экспертов</span></div>
+          <div class="stream-name" style="color:#a78bfa">Для команды обучения</div>
+          <div><span class="tag">ИИ-помощники</span><span class="tag">Навигация и поиск курсов</span><span class="tag">Поиск экспертов</span></div>
         </div>
       </div>
     </div>
@@ -1099,7 +1099,7 @@
         <li>Прототипы и MVP: от промптов и агентов до интеграций с внутренними системами.</li>
         <li>Подбор формата реализации: силами центра, гибрид или внешний провайдер / готовое решение.</li>
         <li>Шаблоны промптов, чек-листы качества, тулкиты и база знаний по повторяемым кейсам.</li>
-        <li>Внутренние воркшопы, разборы кейсов и поддержка заказчиков на этапе внедрения.</li>
+        <li>Разборы кейсов и поддержка заказчиков на этапе внедрения.</li>
         <li>Согласование границ использования ИИ (данные, безопасность, этика) с реальными регламентами компании.</li>
         <li>Связка с IT-командой РТК и Нейрошлюзом — чтобы инициатива не «висела в воздухе».</li>
       </ul>
@@ -1114,7 +1114,7 @@
         </div>
         <div class="eco-col" style="border-color:#7c3aed44">
           <h3>Мин<span class="brand-ii">ИИ</span>стерство</h3>
-          <p>Четыре роли ядра: стратегия и приоритеты, экспертиза и «лицо», разработка, методология и смыслы. Концентрирует компетенции, методику и ответственность за портфель ИИ-решений.</p>
+          <p>Четыре роли ядра: стратегия и приоритеты, бизнес-заказчик, разработка, продюсирование. Концентрирует компетенции, методику и ответственность за портфель ИИ-решений.</p>
         </div>
         <div class="eco-col">
           <h3>Партнёры</h3>
@@ -1131,7 +1131,7 @@
         <div class="struct-row" style="width:100%">
           <div class="struct-node" style="border:1px solid #34d39966"><div class="node-label" style="color:#34d399">◉ Лидер сегмента</div><div class="node-sub">«Заказчик»</div></div>
           <div class="struct-node" style="border:1px solid #60a5fa66"><div class="node-label" style="color:#60a5fa">◆ ИИ-разработчик</div><div class="node-sub">«Руки»</div></div>
-          <div class="struct-node" style="border:1px solid #fb923c66"><div class="node-label" style="color:#fb923c">◇ Методолог</div><div class="node-sub">«Архитектор»</div></div>
+          <div class="struct-node" style="border:1px solid #fb923c66"><div class="node-label" style="color:#fb923c">◇ ИИ-продюсер</div><div class="node-sub">«Архитектор»</div></div>
         </div>
       </div>
     </div>
@@ -1170,7 +1170,7 @@
       <div class="role-header-top">
         <span class="role-icon" style="color:#fb923c">◇</span>
         <div>
-          <div class="role-title" style="color:#fb923c" oninput="updateRoleData('method', 'title', null, null, this.innerText)">Методолог / ИИ-продюсер</div>
+          <div class="role-title" style="color:#fb923c" oninput="updateRoleData('method', 'title', null, null, this.innerText)">ИИ-продюсер</div>
           <div class="role-subtitle" oninput="updateRoleData('method', 'subtitle', null, null, this.innerText)">«Архитектор смыслов»</div>
         </div>
       </div>
@@ -1275,184 +1275,37 @@
       <h2 style="font-family:'EB Garamond',serif;font-size:20px;margin-bottom:6px">Матрица рентабельности</h2>
       <p style="font-size:13px;color:var(--muted)">Оцени проект по 8 критериям — система выдаст рекомендацию по реализации</p>
 
-      <details style="margin-top:16px;font-size:13px;color:var(--text-2)">
-        <summary style="cursor:pointer;font-weight:600;color:var(--text)">Как считаются баллы?</summary>
-        <div style="margin-top:10px;padding:12px;background:var(--bg-subtle);border-radius:8px;line-height:1.7">
-          <p style="margin:0 0 8px">Каждый критерий имеет <strong>вес</strong> (в %) и <strong>4 уровня</strong> оценки (от 0 до 3 баллов).</p>
-          <p style="margin:0 0 8px"><strong>Формула:</strong> балл критерия = (выбранный уровень / 3) × вес.</p>
-          <p style="margin:0 0 8px"><strong>Итоговый балл</strong> = сумма баллов по всем критериям (макс. 100).</p>
-          <table style="width:100%;font-size:12px;border-collapse:collapse;margin-top:8px">
-            <tr><td style="padding:4px 8px">Кол-во пользователей</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
-            <tr><td style="padding:4px 8px">Частота использования</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
-            <tr><td style="padding:4px 8px">Стратегическая ценность</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
-            <tr><td style="padding:4px 8px">Сложность реализации</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
-            <tr><td style="padding:4px 8px">Стоимость на пользователя</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
-            <tr><td style="padding:4px 8px">Стоимость внешних сервисов</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
-            <tr><td style="padding:4px 8px">Масштабируемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
-            <tr><td style="padding:4px 8px">Поддерживаемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
-            <tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px;font-weight:600">Итого</td><td style="padding:4px 8px;text-align:right;font-weight:600">100%</td></tr>
-          </table>
-          <p style="margin:10px 0 0;font-size:12px;color:var(--text-3)">Веса могут быть скорректированы по результатам обсуждения.</p>
-        </div>
-      </details>
     </div>
 
     <div id="criteria-container">
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">👥</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(0, 'label', null, this.innerText)">Охват пользователей</div>
-            <div class="roi-weight">Вес: 25%</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-users">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-users-0" onclick="selectLevel('users',0)" oninput="updateCriteriaData(0, 'levels', 0, this.innerText)">&lt; 100 чел.</button>
-        
-          <button class="roi-level-btn" id="lbtn-users-1" onclick="selectLevel('users',1)" oninput="updateCriteriaData(0, 'levels', 1, this.innerText)">100–500 чел.</button>
-        
-          <button class="roi-level-btn" id="lbtn-users-2" onclick="selectLevel('users',2)" oninput="updateCriteriaData(0, 'levels', 2, this.innerText)">500–2000 чел.</button>
-        
-          <button class="roi-level-btn" id="lbtn-users-3" onclick="selectLevel('users',3)" oninput="updateCriteriaData(0, 'levels', 3, this.innerText)">&gt; 2000 чел.</button>
-        
-      </div>
+      <!-- Генерируется динамически через buildCriteria() -->
     </div>
-  
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">🎯</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(1, 'label', null, this.innerText)">Стратегическая ценность</div>
-            <div class="roi-weight">Вес: 20% · можно выбрать несколько</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-strategic">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-strategic-0" onclick="selectLevel('strategic',0)" oninput="updateCriteriaData(1, 'levels', 0, this.innerText)">Локальная задача</button>
-        
-          <button class="roi-level-btn" id="lbtn-strategic-1" onclick="selectLevel('strategic',1)" oninput="updateCriteriaData(1, 'levels', 1, this.innerText)">Улучшает процесс</button>
-        
-          <button class="roi-level-btn" id="lbtn-strategic-2" onclick="selectLevel('strategic',2)" oninput="updateCriteriaData(1, 'levels', 2, this.innerText)">Влияет на KPI</button>
-        
-          <button class="roi-level-btn" id="lbtn-strategic-3" onclick="selectLevel('strategic',3)" oninput="updateCriteriaData(1, 'levels', 3, this.innerText)">Трансформирует направление</button>
-        
-      </div>
-    </div>
-  
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">⚙️</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(2, 'label', null, this.innerText)">Сложность реализации</div>
-            <div class="roi-weight">Вес: 20%</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-complex">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-complex-0" onclick="selectLevel('complex',0)" oninput="updateCriteriaData(2, 'levels', 0, this.innerText)">Высокая (&gt;3 мес.)</button>
-        
-          <button class="roi-level-btn" id="lbtn-complex-1" onclick="selectLevel('complex',1)" oninput="updateCriteriaData(2, 'levels', 1, this.innerText)">Средняя (1–3 мес.)</button>
-        
-          <button class="roi-level-btn" id="lbtn-complex-2" onclick="selectLevel('complex',2)" oninput="updateCriteriaData(2, 'levels', 2, this.innerText)">Низкая (2–4 нед.)</button>
-        
-          <button class="roi-level-btn" id="lbtn-complex-3" onclick="selectLevel('complex',3)" oninput="updateCriteriaData(2, 'levels', 3, this.innerText)">Минимальная (&lt;2 нед.)</button>
-        
-      </div>
-    </div>
-  
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">💰</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(3, 'label', null, this.innerText)">Стоимость внешних сервисов</div>
-            <div class="roi-weight">Вес: 15%</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-cost">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-cost-0" onclick="selectLevel('cost',0)" oninput="updateCriteriaData(3, 'levels', 0, this.innerText)">&gt; 100k₽/мес.</button>
-        
-          <button class="roi-level-btn" id="lbtn-cost-1" onclick="selectLevel('cost',1)" oninput="updateCriteriaData(3, 'levels', 1, this.innerText)">50–100k₽/мес.</button>
-        
-          <button class="roi-level-btn" id="lbtn-cost-2" onclick="selectLevel('cost',2)" oninput="updateCriteriaData(3, 'levels', 2, this.innerText)">10–50k₽/мес.</button>
-        
-          <button class="roi-level-btn" id="lbtn-cost-3" onclick="selectLevel('cost',3)" oninput="updateCriteriaData(3, 'levels', 3, this.innerText)">&lt; 10k₽/мес.</button>
-        
-      </div>
-    </div>
-  
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">📈</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(4, 'label', null, this.innerText)">Масштабируемость</div>
-            <div class="roi-weight">Вес: 10%</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-scale">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-scale-0" onclick="selectLevel('scale',0)" oninput="updateCriteriaData(4, 'levels', 0, this.innerText)">Разовое решение</button>
-        
-          <button class="roi-level-btn" id="lbtn-scale-1" onclick="selectLevel('scale',1)" oninput="updateCriteriaData(4, 'levels', 1, this.innerText)">Ограниченный потенциал</button>
-        
-          <button class="roi-level-btn" id="lbtn-scale-2" onclick="selectLevel('scale',2)" oninput="updateCriteriaData(4, 'levels', 2, this.innerText)">Масштабируется</button>
-        
-          <button class="roi-level-btn" id="lbtn-scale-3" onclick="selectLevel('scale',3)" oninput="updateCriteriaData(4, 'levels', 3, this.innerText)">Платформенное решение</button>
-        
-      </div>
-    </div>
-  
-    <div class="roi-card" style="margin-bottom:16px">
-      <div class="roi-header">
-        <div class="roi-left">
-          <span style="font-size:20px">🔧</span>
-          <div>
-            <div class="roi-name" oninput="updateCriteriaData(5, 'label', null, this.innerText)">Поддерживаемость</div>
-            <div class="roi-weight">Вес: 10%</div>
-          </div>
-        </div>
-        <div class="roi-score" id="score-support">—</div>
-      </div>
-      <div class="roi-levels">
-        
-          <button class="roi-level-btn" id="lbtn-support-0" onclick="selectLevel('support',0)" oninput="updateCriteriaData(5, 'levels', 0, this.innerText)">Критически сложно</button>
-        
-          <button class="roi-level-btn" id="lbtn-support-1" onclick="selectLevel('support',1)" oninput="updateCriteriaData(5, 'levels', 1, this.innerText)">Требует спеца</button>
-        
-          <button class="roi-level-btn" id="lbtn-support-2" onclick="selectLevel('support',2)" oninput="updateCriteriaData(5, 'levels', 2, this.innerText)">Умеренно просто</button>
-        
-          <button class="roi-level-btn" id="lbtn-support-3" onclick="selectLevel('support',3)" oninput="updateCriteriaData(5, 'levels', 3, this.innerText)">Легко поддерживать</button>
-        
-      </div>
-    </div>
-  </div>
 
-    <div class="result-card" id="result-card" style="background: rgb(254, 242, 242); border: 1px solid rgb(254, 202, 202);">
-    <div style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif">Итоговый балл</div>
-    <div class="result-score-num" style="color:#dc2626">13</div>
-    <div class="result-of">из 100 баллов</div>
-    <div class="result-bar-track">
-      <div class="result-bar-fill" style="width:13%;background:linear-gradient(90deg,#dc262688,#dc2626)"></div>
+    <div class="result-card" id="result-card">
+      <!-- Генерируется динамически через renderResult() -->
     </div>
-    <div class="result-label" style="color:#dc2626">🔁 Переработать запрос</div>
-    <p class="result-advice">Текущая формулировка проекта не проходит по рентабельности. Давайте вместе пересмотрим охват, формат или способ реализации — возможно, задачу можно решить проще.</p>
-  </div>
+
+    <details style="margin:16px 0;font-size:13px;color:var(--text-2)">
+      <summary style="cursor:pointer;font-weight:600;color:var(--text);padding:12px;background:var(--card);border-radius:10px;border:1px solid var(--border)">Как считаются баллы?</summary>
+      <div style="margin-top:10px;padding:12px;background:var(--bg-subtle);border-radius:8px;line-height:1.7">
+        <p style="margin:0 0 8px">Каждый критерий имеет <strong>вес</strong> (в %) и <strong>4 уровня</strong> оценки (от 0 до 3 баллов).</p>
+        <p style="margin:0 0 8px"><strong>Формула:</strong> балл критерия = (выбранный уровень / 3) × вес.</p>
+        <p style="margin:0 0 8px"><strong>Итоговый балл</strong> = сумма баллов по всем критериям (макс. 100) + бонус за экономию.</p>
+        <table style="width:100%;font-size:12px;border-collapse:collapse;margin-top:8px">
+          <tr><td style="padding:4px 8px">Кол-во пользователей</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
+          <tr><td style="padding:4px 8px">Частота использования</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
+          <tr><td style="padding:4px 8px">Стратегическая ценность</td><td style="padding:4px 8px;text-align:right;font-weight:600">20%</td></tr>
+          <tr><td style="padding:4px 8px">Сложность реализации</td><td style="padding:4px 8px;text-align:right;font-weight:600">15%</td></tr>
+          <tr><td style="padding:4px 8px">Стоимость на пользователя</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
+          <tr><td style="padding:4px 8px">Стоимость внешних сервисов</td><td style="padding:4px 8px;text-align:right;font-weight:600">10%</td></tr>
+          <tr><td style="padding:4px 8px">Масштабируемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
+          <tr><td style="padding:4px 8px">Поддерживаемость</td><td style="padding:4px 8px;text-align:right;font-weight:600">5%</td></tr>
+          <tr style="border-top:1px solid var(--border)"><td style="padding:4px 8px;font-weight:600">Итого (критерии)</td><td style="padding:4px 8px;text-align:right;font-weight:600">100%</td></tr>
+        </table>
+        <p style="margin:10px 0 0;font-size:12px;color:var(--text-3)"><strong>Бонус за экономию</strong> (сверх 100): &gt;100 тыс.₽ = +5 | &gt;500 тыс. = +10 | &gt;1 млн = +15 · Время: &gt;40 ч = +5 | &gt;160 ч = +10. Итог не может превысить 100.</p>
+        <p style="margin:6px 0 0;font-size:12px;color:var(--text-3)"><strong>Пограничные значения (31–55):</strong> рекомендуем дополнительно обосновать ценность проекта или рассмотреть снижение затрат.</p>
+      </div>
+    </details>
 
     <div class="card-sm">
       <div class="section-label">Шкала решений</div>
@@ -1817,6 +1670,7 @@
       </table>
       </div>
       <p style="margin-top:12px;font-size:12px;color:var(--text-3)">* Для Claude и Cursor: при необходимости командного доступа — отдельный аккаунт на каждого специалиста. Рекомендация: 2–3 аккаунта Claude Pro + 2 аккаунта Cursor Pro для команды из 4 человек.</p>
+      <p style="margin-top:6px;font-size:12px;color:#ef4444cc">⚠️ Работа нескольких человек под одной учётной записью технически возможна, но система безопасности платформы отслеживает вход с разных устройств и может заблокировать аккаунт за подозрение на несанкционированный доступ.</p>
     </div>
 
     <div class="card">
@@ -1962,13 +1816,13 @@ let roles = {
     "subtitle": "«Заказчик»",
     "color": "#34d399",
     "accent": "#059669",
-    "desc": "Лидер сегмента, который владеет бизнес-контекстом и формулирует запрос на ИИ-решения. Консультирует заказчиков, формирует требования, умеет самостоятельно собирать простые ИИ-агенты и несложные решения без привлечения разработки.",
+    "desc": "Бизнес-заказчик от команды обучения (методолог), который владеет контекстом сегмента и формулирует запрос на ИИ-решения. Формирует требования, умеет самостоятельно собирать простые решения без привлечения разработки.",
     "tasks": [
-      "Взаимодействие и консультирование заказчиков: что реально даст ИИ, где риски и альтернативы",
       "Формирование требований для разработки, чек-листов качества и вклад в базу знаний",
       "Экспертная проработка решений и постановка задач разработке",
       "Самостоятельная сборка простых ИИ-агентов и несложных решений",
-      "Постановка задач модели: промптинг, декомпозиция, валидация и борьба с галлюцинациями"
+      "Постановка задач модели: промптинг, декомпозиция, валидация и борьба с галлюцинациями",
+      "Тренерская поддержка и фасилитация внедрения в команде обучения"
     ],
     "skills": [
       [
@@ -1976,7 +1830,7 @@ let roles = {
         5
       ],
       [
-        "Промпт-инжиниринг, безопасность данных и этичное использование",
+        "Промпт-инжиниринг и безопасность данных",
         5
       ],
       [
@@ -2038,7 +1892,7 @@ let roles = {
   },
   "method": {
     "icon": "◇",
-    "title": "Методолог / ИИ-продюсер",
+    "title": "ИИ-продюсер",
     "subtitle": "«Архитектор смыслов»",
     "color": "#fb923c",
     "accent": "#ea580c",
@@ -2185,7 +2039,7 @@ const decisions = [
 ];
 
 // ---- APP STATE ----
-let scores = { users:-1, strategic:-1, complex:-1, cost:-1, scale:-1, support:-1 };
+let scores = { users:-1, frequency:-1, strategic:-1, complex:-1, cost_per_user:-1, cost:-1, scale:-1, support:-1 };
 // Критерии с множественным выбором: балл = максимальный из выбранных
 let multiScores = { strategic: new Set() };
 
@@ -2291,6 +2145,35 @@ function buildCriteria() {
       </div>
     </div>
   `).join('');
+
+  // Блок экономии (бонусные баллы)
+  container.innerHTML += `
+    <div class="roi-card" style="margin-bottom:16px;border:1px dashed var(--border)">
+      <div class="roi-header">
+        <div class="roi-left">
+          <span style="font-size:20px">💵</span>
+          <div>
+            <div class="roi-name">Ожидаемая экономия (бонусные баллы)</div>
+            <div class="roi-weight">Не входит в 100% весов — добавляется сверху</div>
+          </div>
+        </div>
+        <div class="roi-score" id="score-savings">—</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0">
+        <div>
+          <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Экономия денег, ₽/год</label>
+          <input type="number" id="roi-save-money" placeholder="0" min="0" oninput="updateSavingsBonus()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);font-size:14px">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Экономия времени, ч/мес</label>
+          <input type="number" id="roi-save-hours" placeholder="0" min="0" oninput="updateSavingsBonus()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);font-size:14px">
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-3);padding:0 0 8px">
+        Пороги: &gt;100 тыс.₽ = +5 б. | &gt;500 тыс. = +10 б. | &gt;1 млн = +15 б. · Время: &gt;40 ч (0.25 FTE) = +5 б. | &gt;160 ч (1 FTE) = +10 б.
+      </div>
+    </div>
+  `;
   renderResult();
 }
 
@@ -2308,8 +2191,8 @@ function selectLevel(cid, idx) {
       set.add(idx);
       document.getElementById(`lbtn-${cid}-${idx}`).classList.add('selected');
     }
-    // Балл = сумма индексов выбранных (с потолком 3)
-    scores[cid] = set.size > 0 ? Math.min([...set].reduce((a, b) => a + b, 0), 3) : -1;
+    // Балл = максимальный выбранный уровень (0–3)
+    scores[cid] = set.size > 0 ? Math.max(...set) : -1;
   } else {
     // Одиночный выбор (как было)
     c.levels.forEach((_, i) => {
@@ -2331,18 +2214,56 @@ function selectLevel(cid, idx) {
   renderResult();
 }
 
+let savingsBonus = 0;
+
+function calcSavingsBonus() {
+  const moneyEl = document.getElementById('roi-save-money');
+  const hoursEl = document.getElementById('roi-save-hours');
+  const money = moneyEl ? Number(moneyEl.value) || 0 : 0;
+  const hours = hoursEl ? Number(hoursEl.value) || 0 : 0;
+
+  let bonus = 0;
+  // Денежная экономия
+  if (money >= 1000000) bonus += 15;
+  else if (money >= 500000) bonus += 10;
+  else if (money >= 100000) bonus += 5;
+  // Экономия времени (в часах/мес → FTE)
+  if (hours >= 160) bonus += 10;
+  else if (hours >= 40) bonus += 5;
+
+  return bonus;
+}
+
+function updateSavingsBonus() {
+  savingsBonus = calcSavingsBonus();
+  const scoreEl = document.getElementById('score-savings');
+  if (scoreEl) {
+    if (savingsBonus > 0) {
+      scoreEl.textContent = `+${savingsBonus} бонус`;
+      scoreEl.classList.add('active');
+    } else {
+      scoreEl.textContent = '—';
+      scoreEl.classList.remove('active');
+    }
+  }
+  renderResult();
+}
+
 function renderResult() {
-  const total = Math.round(
+  const base = Math.round(
     criteria.reduce((sum, c) => {
       const s = scores[c.id];
       return sum + (s >= 0 ? (s / 3) * c.weight : 0);
     }, 0)
   );
+  const total = Math.min(base + savingsBonus, 100);
   const d = decisions.find(x => total >= x.min && total <= x.max) || decisions[0];
+  const bonusText = savingsBonus > 0 ? `<div style="font-size:12px;color:var(--muted);margin-top:4px">Критерии: ${base} + бонус за экономию: +${savingsBonus}</div>` : '';
   document.getElementById('result-card').innerHTML = `
     <div style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif">Итоговый балл</div>
     <div class="result-score-num" style="color:${d.color}">${total}</div>
     <div class="result-of">из 100 баллов</div>
+    ${bonusText}
     <div class="result-bar-track">
       <div class="result-bar-fill" style="width:${total}%;background:linear-gradient(90deg,${d.color}88,${d.color})"></div>
     </div>
@@ -2561,12 +2482,13 @@ function updateCriteriaData(idx, field, levelIdx, value) {
 }
 
 // ---- DATA VERSION (увеличить при каждом обновлении данных в коде) ----
-const DATA_VERSION = 6;
+const DATA_VERSION = 7;
 // Данные сохраняются через /api/data (Supabase) + localStorage как фолбэк
 const API_DATA_URL = '/api/data';
 
 function collectData() {
   return {
+    _version: DATA_VERSION,
     roles: roles,
     criteria: criteria,
     staticHtml: {
@@ -2619,10 +2541,15 @@ async function loadData() {
     const res = await fetch(API_DATA_URL);
     if (res.ok) {
       const data = await res.json();
+      // Проверяем версию данных — если в облаке старая версия, используем встроенные
       if (data && data.roles) {
-        applyData(data);
-        console.log('Данные загружены из облака');
-        return;
+        if (data._version && Number(data._version) >= DATA_VERSION) {
+          applyData(data);
+          console.log('Данные загружены из облака (v' + data._version + ')');
+          return;
+        } else {
+          console.log('Облачные данные устарели (v' + (data._version || '?') + ' < v' + DATA_VERSION + '), используются встроенные');
+        }
       }
     }
   } catch (e) {
