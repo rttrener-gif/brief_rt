@@ -1081,13 +1081,6 @@
           <div><span class="tag">ИИ-агенты&nbsp;</span><span class="tag">Дашборды и отчётность</span><span class="tag">Автоматизация рутины</span></div>
         </div>
       </div>
-      <div class="stream">
-        <div class="stream-bar" style="background:#a78bfa"></div>
-        <div>
-          <div class="stream-name" style="color:#a78bfa">Для команды обучения</div>
-          <div><span class="tag">ИИ-помощники</span><span class="tag">Навигация и поиск курсов</span><span class="tag">Поиск экспертов</span></div>
-        </div>
-      </div>
     </div>
 
     <div class="card">
@@ -1129,9 +1122,9 @@
         <div class="struct-head">◈ Мин<span class="brand-ii">ИИ</span>стр</div>
         <div class="struct-line"></div>
         <div class="struct-row" style="width:100%">
-          <div class="struct-node" style="border:1px solid #34d39966"><div class="node-label" style="color:#34d399">◉ Лидер сегмента</div><div class="node-sub">«Заказчик»</div></div>
           <div class="struct-node" style="border:1px solid #60a5fa66"><div class="node-label" style="color:#60a5fa">◆ ИИ-разработчик</div><div class="node-sub">«Руки»</div></div>
           <div class="struct-node" style="border:1px solid #fb923c66"><div class="node-label" style="color:#fb923c">◇ ИИ-продюсер</div><div class="node-sub">«Архитектор»</div></div>
+          <div class="struct-node" style="border:1px solid #34d39966"><div class="node-label" style="color:#34d399">◉ Бизнес-заказчик</div><div class="node-sub">«Заказчик»</div></div>
         </div>
       </div>
     </div>
@@ -1154,14 +1147,14 @@
       <button class="role-btn" id="rbtn-head" onclick="switchRole('head', this)" style="">
         <div class="rbicon">◈</div><div class="rbsub">«Мозг»</div>
       </button>
-      <button class="role-btn" id="rbtn-expert" onclick="switchRole('expert', this)" style="">
-        <div class="rbicon">◉</div><div class="rbsub">«Заказчик»</div>
-      </button>
       <button class="role-btn" id="rbtn-dev" onclick="switchRole('dev', this)" style="">
         <div class="rbicon">◆</div><div class="rbsub">«Руки»</div>
       </button>
-      <button class="role-btn" id="rbtn-method" onclick="switchRole('method', this)" style="border-color: rgb(251, 146, 60); color: rgb(251, 146, 60); background: rgba(234, 88, 12, 0.133);">
+      <button class="role-btn" id="rbtn-method" onclick="switchRole('method', this)" style="">
         <div class="rbicon">◇</div><div class="rbsub">«Архитектор»</div>
+      </button>
+      <button class="role-btn" id="rbtn-expert" onclick="switchRole('expert', this)" style="">
+        <div class="rbicon">◉</div><div class="rbsub">«Бизнес-заказчик»</div>
       </button>
     </div>
 
@@ -1371,9 +1364,6 @@
           <button class="role-btn journey-step1-btn" onclick="journeyStep1('internal')" id="jbtn-internal" style="border:1px solid var(--border);border-radius:10px;padding:12px 20px;background:var(--card);cursor:pointer;color:var(--text-1);font-size:14px;transition:all .2s">
             <span style="font-size:20px">👤</span> Внутренний пользователь
           </button>
-          <button class="role-btn journey-step1-btn" onclick="journeyStep1('dzo')" id="jbtn-dzo" style="border:1px solid var(--border);border-radius:10px;padding:12px 20px;background:var(--card);cursor:pointer;color:var(--text-1);font-size:14px;transition:all .2s">
-            <span style="font-size:20px">🏢</span> ДЗО
-          </button>
         </div>
       </div>
       <!-- Шаг 2: Для кого продукт? (только для внутреннего) -->
@@ -1390,32 +1380,7 @@
       </div>
 
       <!-- Сценарии -->
-      <div id="journey-content" style="margin-top:16px">
-    <div style="border-left:3px solid #fb923c;padding-left:20px">
-      <div style="font-size:16px;font-weight:600;color:#fb923c;margin-bottom:16px">🏢 ДЗО</div>
-      
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px">
-          <span style="font-size:18px;flex-shrink:0">1️⃣</span>
-          <span style="color:var(--text-2);line-height:1.5">ДЗО обращается в минИИстерство с запросом на использование существующих решений</span>
-        </div>
-      
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px">
-          <span style="font-size:18px;flex-shrink:0">2️⃣</span>
-          <span style="color:var(--text-2);line-height:1.5">Схема взаимодействия: определяем, какие тренажёры/решения уже есть в Онлайн-университете</span>
-        </div>
-      
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px">
-          <span style="font-size:18px;flex-shrink:0">3️⃣</span>
-          <span style="color:var(--text-2);line-height:1.5">ДЗО подключается к готовым инструментам через Онлайн-университет</span>
-        </div>
-      
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px">
-          <span style="font-size:18px;flex-shrink:0">4️⃣</span>
-          <span style="color:var(--text-2);line-height:1.5">Стоимость возвращается через корректировки</span>
-        </div>
-      
-    </div>
-  </div>
+      <div id="journey-content" style="margin-top:16px"></div>
     </div>
 
     <!-- Модели оплаты для ДЗО -->
@@ -1812,7 +1777,7 @@ let roles = {
   },
   "expert": {
     "icon": "◉",
-    "title": "Лидер сегмента / Бизнес-заказчик",
+    "title": "Бизнес-заказчик",
     "subtitle": "«Заказчик»",
     "color": "#34d399",
     "accent": "#059669",
@@ -1822,7 +1787,7 @@ let roles = {
       "Экспертная проработка решений и постановка задач разработке",
       "Самостоятельная сборка простых ИИ-агентов и несложных решений",
       "Постановка задач модели: промптинг, декомпозиция, валидация и борьба с галлюцинациями",
-      "Тренерская поддержка и фасилитация внедрения в команде обучения"
+      "Продуктовая проработка и сопровождение внедрения в команде обучения"
     ],
     "skills": [
       [
@@ -1834,7 +1799,7 @@ let roles = {
         5
       ],
       [
-        "Тренерские навыки и фасилитация",
+        "Продуктовое мышление",
         4
       ],
       [
@@ -2309,16 +2274,6 @@ const journeyData = {
       { icon: '5️⃣', text: 'Контроль эффективности использования' }
     ]
   },
-  'dzo': {
-    title: '🏢 ДЗО',
-    color: '#fb923c',
-    steps: [
-      { icon: '1️⃣', text: 'ДЗО обращается в минИИстерство с запросом на использование существующих решений' },
-      { icon: '2️⃣', text: 'Схема взаимодействия: определяем, какие тренажёры/решения уже есть в Онлайн-университете' },
-      { icon: '3️⃣', text: 'ДЗО подключается к готовым инструментам через Онлайн-университет' },
-      { icon: '4️⃣', text: 'ДЗО выбирает модель оплаты (см. ниже)' }
-    ]
-  }
 };
 
 function journeyStep1(type) {
@@ -2330,24 +2285,17 @@ function journeyStep1(type) {
     b.style.borderColor = 'var(--border)';
     b.style.background = 'var(--card)';
   });
-  const btn = document.getElementById(type === 'dzo' ? 'jbtn-dzo' : 'jbtn-internal');
+  const btn = document.getElementById('jbtn-internal');
   const step2 = document.getElementById('journey-step2');
-  if (type === 'dzo') {
-    btn.style.borderColor = '#fb923c';
-    btn.style.background = '#fb923c18';
-    step2.style.display = 'none';
-    showJourney('dzo');
-  } else {
-    btn.style.borderColor = '#c084fc';
-    btn.style.background = '#c084fc18';
-    step2.style.display = '';
-    document.getElementById('journey-content').innerHTML = `
-      <div style="text-align:center;padding:30px 20px;color:var(--muted)">
-        <span style="font-size:28px;display:block;margin-bottom:8px">👆</span>
-        Выберите тип продукта выше
-      </div>
-    `;
-  }
+  btn.style.borderColor = '#c084fc';
+  btn.style.background = '#c084fc18';
+  step2.style.display = '';
+  document.getElementById('journey-content').innerHTML = `
+    <div style="text-align:center;padding:30px 20px;color:var(--muted)">
+      <span style="font-size:28px;display:block;margin-bottom:8px">👆</span>
+      Выберите тип продукта выше
+    </div>
+  `;
 }
 
 function showJourney(roleId) {
