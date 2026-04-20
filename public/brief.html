@@ -273,7 +273,7 @@
         <option value="Без жёстких сроков">Без жёстких сроков</option>
       </select>
 
-      <label>Охват пользователей</label>
+      <label>Количество пользователей</label>
       <select id="f-users">
         <option value="">Выберите...</option>
         <option value="< 100 чел.">Менее 100 человек</option>
@@ -405,11 +405,20 @@ function calcResult() {
     return;
   }
 
-  const total = Math.round((+s/3)*35 + (+u/3)*35 + (+f/3)*30);
-  const d = decisions.find(x => total >= x.min && total <= x.max) || decisions[0];
+  const base = Math.round((+s/3)*35 + (+u/3)*35 + (+f/3)*30);
 
+  // Бонус за экономию (аналогично основному калькулятору)
   const saveMoney = Number(document.getElementById('f-save-money').value) || 0;
   const saveHours = Number(document.getElementById('f-save-hours').value) || 0;
+  let bonus = 0;
+  if (saveMoney >= 1000000) bonus += 15;
+  else if (saveMoney >= 500000) bonus += 10;
+  else if (saveMoney >= 100000) bonus += 5;
+  if (saveHours >= 160) bonus += 10;
+  else if (saveHours >= 40) bonus += 5;
+
+  const total = Math.min(base + bonus, 100);
+  const d = decisions.find(x => total >= x.min && total <= x.max) || decisions[0];
   const hasSavings = saveMoney > 0 || saveHours > 0;
 
   box.style.background = d.bg;
@@ -417,12 +426,13 @@ function calcResult() {
   box.innerHTML = `
     <div class="result-score" style="color:${d.color}">${total}</div>
     <div style="font-size:11px;color:var(--muted)">из 100 баллов</div>
+    ${bonus > 0 ? '<div style="font-size:11px;color:var(--muted)">Критерии: ' + base + ' + бонус за экономию: +' + bonus + '</div>' : ''}
     <div class="result-label" style="color:${d.color}">${d.label}</div>
     ${hasSavings ? `<div style="margin-top:8px;font-size:13px;color:var(--text-2)">
       ${saveMoney > 0 ? '💰 Экономия: ' + saveMoney.toLocaleString('ru-RU') + '₽/год' : ''}
       ${saveMoney > 0 && saveHours > 0 ? ' · ' : ''}
       ${saveHours > 0 ? '⏱ ' + saveHours + ' ч/мес (' + (saveHours/160).toFixed(2) + ' шт.ед.)' : ''}
-    </div>` : '<div style="margin-top:8px;font-size:12px;color:#d97706">⚠️ Укажите экономию денег или часов для обоснования</div>'}
+    </div>` : '<div style="margin-top:8px;font-size:12px;color:#d97706">⚠️ Укажите экономию денег или часов — это повысит оценку</div>'}
     <div class="result-advice">Это предварительная оценка. Окончательное решение принимается после анализа брифа командой.</div>
   `;
 }
