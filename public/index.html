@@ -2132,10 +2132,11 @@ function buildCriteria() {
         <div>
           <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Экономия времени, ч/мес</label>
           <input type="number" id="roi-save-hours" placeholder="0" min="0" oninput="updateSavingsBonus()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);font-size:14px">
+          <div id="roi-fte-hint" style="font-size:11px;color:var(--accent,#7c3aed);margin-top:4px;display:none"></div>
         </div>
       </div>
       <div style="font-size:11px;color:var(--text-3);padding:0 0 8px">
-        Пороги: &gt;100 тыс.₽ = +5 б. | &gt;500 тыс. = +10 б. | &gt;1 млн = +15 б. · Время: &gt;40 ч (0.25 FTE) = +5 б. | &gt;160 ч (1 FTE) = +10 б.
+        Пороги: &gt;100 тыс.₽ = +5 б. | &gt;500 тыс. = +10 б. | &gt;1 млн = +15 б. · Время: &gt;40 ч (0.25 шт.ед.) = +5 б. | &gt;160 ч (1 шт.ед.) = +10 б.
       </div>
     </div>
   `;
@@ -2211,6 +2212,19 @@ function updateSavingsBonus() {
       scoreEl.classList.remove('active');
     }
   }
+  // Конвертация часов → штатные единицы (1 шт.ед. = 160 ч/мес), как в брифе
+  const hoursEl = document.getElementById('roi-save-hours');
+  const fteHint = document.getElementById('roi-fte-hint');
+  const hours = hoursEl ? Number(hoursEl.value) || 0 : 0;
+  if (fteHint) {
+    if (hours > 0) {
+      const fte = (hours / 160).toFixed(2);
+      fteHint.textContent = `≈ ${fte} шт. ед. (1 шт. ед. = 160 ч/мес)`;
+      fteHint.style.display = '';
+    } else {
+      fteHint.style.display = 'none';
+    }
+  }
   renderResult();
 }
 
@@ -2224,11 +2238,26 @@ function renderResult() {
   const total = Math.min(base + savingsBonus, 100);
   const d = decisions.find(x => total >= x.min && total <= x.max) || decisions[0];
   const bonusText = savingsBonus > 0 ? `<div style="font-size:12px;color:var(--muted);margin-top:4px">Критерии: ${base} + бонус за экономию: +${savingsBonus}</div>` : '';
+
+  // Сводка по экономии (как в брифе)
+  const moneyEl = document.getElementById('roi-save-money');
+  const hoursEl = document.getElementById('roi-save-hours');
+  const saveMoney = moneyEl ? Number(moneyEl.value) || 0 : 0;
+  const saveHours = hoursEl ? Number(hoursEl.value) || 0 : 0;
+  const hasSavings = saveMoney > 0 || saveHours > 0;
+  const savingsLine = hasSavings ? `
+    <div style="margin-top:8px;font-size:13px;color:var(--text-2)">
+      ${saveMoney > 0 ? '💰 Экономия: ' + saveMoney.toLocaleString('ru-RU') + '₽/год' : ''}
+      ${saveMoney > 0 && saveHours > 0 ? ' · ' : ''}
+      ${saveHours > 0 ? '⏱ ' + saveHours + ' ч/мес (' + (saveHours/160).toFixed(2) + ' шт.ед.)' : ''}
+    </div>` : '';
+
   document.getElementById('result-card').innerHTML = `
     <div style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif">Итоговый балл</div>
     <div class="result-score-num" style="color:${d.color}">${total}</div>
     <div class="result-of">из 100 баллов</div>
     ${bonusText}
+    ${savingsLine}
     <div class="result-bar-track">
       <div class="result-bar-fill" style="width:${total}%;background:linear-gradient(90deg,${d.color}88,${d.color})"></div>
     </div>
