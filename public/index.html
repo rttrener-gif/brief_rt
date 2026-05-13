@@ -1014,21 +1014,21 @@
       <button type="button" class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Переключить тему оформления" title="Светлая / тёмная тема" aria-pressed="false">🌙</button>
       <div class="header-badge">Internal Document</div>
       <h1>Мин<span class="brand-ii">ИИ</span>стерство</h1>
-      <p>Цели · Задачи· Структура · Компетенции · Рентабельность</p>
+      <p>Цели · Задачи · Структура · Компетенции · Рентабельность</p>
     </div>
   </div>
 
   <!-- Tabs -->
   <div class="tabs">
-    <button class="tab-btn" onclick="switchTab('concept', this)">Концепция</button>
+    <button class="tab-btn active" onclick="switchTab('concept', this)">Концепция</button>
     <button class="tab-btn" onclick="switchTab('roles', this)">Роли</button>
     <button class="tab-btn" onclick="switchTab('roi', this)">Рентабельность</button>
     <button class="tab-btn" onclick="switchTab('journey', this)">Путь пользователя</button>
-    <button class="tab-btn active" onclick="switchTab('compare', this)">Сравнение</button>
+    <button class="tab-btn" onclick="switchTab('compare', this)">Сравнение</button>
   </div>
 
   <!-- ===================== CONCEPT ===================== -->
-  <div id="panel-concept" class="panel">
+  <div id="panel-concept" class="panel active">
 
     <div class="card">
       <div class="concept-header">
@@ -1039,7 +1039,7 @@
         </div>
       </div>
       <div class="concept-body">
-        ИИ-центр — внутренний «мозговой центр» команды обучения, обрабатывающий все запросы, связанные с разработкой и внедрением искусственного интеллекта.<br><br>Работает одновременно в двух направлениях:<br>— создание ИИ-контента для учеников (тренажёры, симуляторы, учебные материалы)<br>— разработка инструментов для команды обучающих (аналитические агенты, дашборды, автоматизация).
+        ИИ-центр — внутренний «мозговой центр» команды обучения, обрабатывающий все запросы, связанные с разработкой и внедрением искусственного интеллекта.<br><br>Работает одновременно в двух направлениях:<br>— создание ИИ-контента для учеников (тренажёры, симуляторы, учебные материалы)<br>— разработка инструментов для команды обучения (аналитические агенты, дашборды, автоматизация).
       </div>
     </div>
 
@@ -1078,7 +1078,7 @@
         <div class="stream-bar" style="background:#60a5fa"></div>
         <div>
           <div class="stream-name" style="color:#60a5fa">Для внутренней команды обучения и HR</div>
-          <div><span class="tag">ИИ-агенты&nbsp;</span><span class="tag">Дашборды и отчётность</span><span class="tag">Автоматизация рутины</span></div>
+          <div><span class="tag">ИИ-агенты</span><span class="tag">Дашборды и отчётность</span><span class="tag">Автоматизация рутины</span></div>
         </div>
       </div>
     </div>
@@ -1190,12 +1190,12 @@
   
     <div class="task-item">
       <span class="task-arrow" style="color:#fb923c">▸</span>
-      <span class="task-text" oninput="updateRoleData('method', 'tasks', 3, null, this.innerText)">Проектирование UX/UI&nbsp;</span>
+      <span class="task-text" oninput="updateRoleData('method', 'tasks', 3, null, this.innerText)">Проектирование UX/UI</span>
     </div>
   
     <div class="task-item">
       <span class="task-arrow" style="color:#fb923c">▸</span>
-      <span class="task-text" oninput="updateRoleData('method', 'tasks', 4, null, this.innerText)">"Дирижирование" ИИ: оркестровый подход, где человек — стратег, распределяющий задачи и проверяющий результаты работы ИИ-агентов</span>
+      <span class="task-text" oninput="updateRoleData('method', 'tasks', 4, null, this.innerText)">«Дирижирование» ИИ: оркестровый подход, где человек — стратег, распределяющий задачи и проверяющий результаты работы ИИ-агентов</span>
     </div>
   
       </div>
@@ -1266,7 +1266,7 @@
 
     <div class="card">
       <h2 style="font-family:'EB Garamond',serif;font-size:20px;margin-bottom:6px">Матрица рентабельности</h2>
-      <p style="font-size:13px;color:var(--muted)">Оцени проект по 8 критериям — система выдаст рекомендацию по реализации</p>
+      <p style="font-size:13px;color:var(--muted)">Оцените проект по 8 критериям — система выдаст рекомендацию по реализации</p>
 
     </div>
 
@@ -1362,7 +1362,7 @@
         <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:8px;font-weight:600">Шаг 1: Кто вы?</div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
           <button class="role-btn journey-step1-btn" onclick="journeyStep1('internal')" id="jbtn-internal" style="border:1px solid var(--border);border-radius:10px;padding:12px 20px;background:var(--card);cursor:pointer;color:var(--text-1);font-size:14px;transition:all .2s">
-            <span style="font-size:20px">👤</span> Внутренний пользователь
+            <span style="font-size:20px">📝</span> Заказчик
           </button>
         </div>
       </div>
@@ -1484,7 +1484,7 @@
       <div class="concept-header">
         <span style="font-size:28px">📊</span>
         <div>
-          <h2>Экспресс-оценка реализуемости/рентабельности для заказчика</h2>
+          <h2>Экспресс-оценка реализуемости и рентабельности для заказчика</h2>
           <p>Упрощённая матрица — только те критерии, которые заказчик может оценить самостоятельно</p>
         </div>
       </div>
@@ -1533,7 +1533,7 @@
             <div class="roi-left">
               <span style="font-size:20px">👥</span>
               <div>
-                <div class="roi-name">Охват пользователей</div>
+                <div class="roi-name">Количество пользователей</div>
                 <div class="roi-weight">Вес: 35%</div>
               </div>
             </div>
@@ -1548,7 +1548,7 @@
         </div>
       </div>
 
-      <div class="result-card" id="customer-result-card" style="background: rgb(240, 253, 244); border-color: rgb(187, 247, 208); border-top-style: ; border-top-width: ; border-right-style: ; border-right-width: ; border-bottom-style: ; border-bottom-width: ; border-left-style: ; border-left-width: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ;">
+      <div class="result-card" id="customer-result-card" style="background: rgb(240, 253, 244); border-color: rgb(187, 247, 208);">
     <div style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif">Предварительная оценка заказчика</div>
     <div class="result-score-num" style="color:#16a34a">100</div>
     <div class="result-of">из 100 баллов</div>
@@ -1586,7 +1586,7 @@
   </div>
 
   <!-- ===================== COMPARE ===================== -->
-  <div id="panel-compare" class="panel active">
+  <div id="panel-compare" class="panel">
 
     <div class="card">
       <div class="concept-header">
@@ -1659,7 +1659,7 @@
           <tr style="border-bottom:1px solid var(--border)">
             <td style="padding:12px 16px;font-weight:600;color:var(--text-2)">💰 Стоимость</td>
             <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#34d399">+</span> Дешевле в долгосрочной перспективе. Основные затраты — оборудование и ФОТ</td>
-            <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#ef4444">−</span> Дороже: лицензии, подписки, стоимость за запрос. Сложность согласования с ЭБ</td>
+            <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#ef4444">−</span> Дороже: лицензии, подписки, стоимость за запрос. Сложность согласования с ИБ</td>
           </tr>
           <tr style="border-bottom:1px solid var(--border)">
             <td style="padding:12px 16px;font-weight:600;color:var(--text-2)">⚡ Скорость</td>
@@ -1694,7 +1694,7 @@
           <tr style="border-bottom:1px solid var(--border)">
             <td style="padding:12px 16px;font-weight:600;color:var(--text-2)">🔒 ИБ и данные</td>
             <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#34d399">+</span> Данные внутри периметра. Проще соблюдение требований ИБ</td>
-            <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#ef4444">−</span> Сложное согласование с ЭБ. Данные за периметром</td>
+            <td style="padding:12px 16px;color:var(--text-2)"><span style="color:#ef4444">−</span> Сложное согласование с ИБ. Данные за периметром</td>
           </tr>
           <tr style="border-bottom:1px solid var(--border)">
             <td style="padding:12px 16px;font-weight:600;color:var(--text-2)">🏆 Имидж</td>
@@ -1866,8 +1866,8 @@ let roles = {
       "Проектирование интеграции ИИ-решений в образовательные продукты",
       "Разработка пользовательских сценариев и критериев достижения результата",
       "Стандартизация шаблонов, промптов и методичек для масштабирования решений",
-      "Проектирование UX/UI ",
-      "\"Дирижирование\" ИИ: оркестровый подход, где человек — стратег, распределяющий задачи и проверяющий результаты работы ИИ-агентов"
+      "Проектирование UX/UI",
+      "«Дирижирование» ИИ: оркестровый подход, где человек — стратег, распределяющий задачи и проверяющий результаты работы ИИ-агентов"
     ],
     "skills": [
       [
